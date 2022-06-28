@@ -8,4 +8,3 @@ class Solution:
             maxprofit = max(maxprofit, p - minstock)
             minstock = min(minstock, p)
         return maxprofit
-        
