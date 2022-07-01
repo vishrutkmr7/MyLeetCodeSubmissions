@@ -24,10 +24,5 @@ class Solution:
             else:
                 d[i] = 1
         max_val = max(d.values())
-        mode = []
-        for key, value in d.items():
-            if value == max_val:
-                mode.append(key)
-        
-        return mode
+        return [key for key, value in d.items() if value == max_val]
             

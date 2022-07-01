@@ -11,9 +11,9 @@ class Solution:
             if stack[-1] != digit:
                 res += str(len(stack)) + str(stack[-1])
                 stack = []
-                
+
             stack.append(digit)
-                
+
         return res + str(len(stack)) + str(stack[-1])
         
         
@@ -22,9 +22,9 @@ class Solution:
         if n == 1:
             return "1"
         said = "1"
-        for i in range(1, n):
+        for _ in range(1, n):
             said = self.say(said)
-        
+
         return said
             
         

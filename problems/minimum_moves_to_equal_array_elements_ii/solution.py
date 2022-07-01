@@ -1,9 +1,6 @@
 class Solution:
     def minMoves2(self, nums: List[int]) -> int:
         sortd = sorted(nums)
-        med = sortd[int(len(sortd) / 2)]
-        minMoveCount = 0
-        for n in sortd:
-            minMoveCount += abs(n-med)
-        return minMoveCount
+        med = sortd[len(sortd) // 2]
+        return sum(abs(n-med) for n in sortd)
         

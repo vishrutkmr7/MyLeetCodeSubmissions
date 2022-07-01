@@ -8,8 +8,8 @@ class Solution:
                 count += 2
             else:
                 stack.append(ch)
-                
-        if len(stack) == 0:
+
+        if not stack:
             return count
         return count + 1
         
