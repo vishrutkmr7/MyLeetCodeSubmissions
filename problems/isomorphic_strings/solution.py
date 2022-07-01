@@ -5,7 +5,7 @@ class Solution:
             return False
         marked = [False] * 256
         mapr = [-1] * 256
-        
+
         for i in range(len(s)):
             if mapr[ord(s[i])] == -1:
                 if marked[ord(t[i])] == True:
