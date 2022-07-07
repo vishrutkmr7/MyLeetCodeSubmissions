@@ -3,16 +3,16 @@ class Solution:
         def helper(cur):
             if len(cur) == 0: 
                 return ''
-            
+
             i, num, prefix, level, depth, start = 0, '', '', 0, 0, math.inf
-            
+
             while i < len(cur) and 97 <= ord(cur[i]) <= 122: # letter 
                 prefix += cur[i]
                 i += 1
             while i < len(cur) and 48 <= ord(cur[i]) <= 58: # num
                 num += cur[i]
                 i += 1
-                
+
             while i < len(cur): 
                 if cur[i] == '[': 
                     level += 1 # tracks how many opening bracket I have 

@@ -10,7 +10,7 @@ class Solution:
                     cur += 1
                     temp += 1
                 res = max(res, cur)
-        
+
         return res
                 
                 
