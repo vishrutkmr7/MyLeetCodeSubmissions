@@ -9,12 +9,12 @@ class Solution:
             pos = 0
             for i in range(len(num1)-1, -1, -1):
                 pos = i + j + 1
-                temp_prod = res[i+j+1] + int(num2[j]) * int(num1[i]) + carry
+                temp_prod = res[i + j + 1] + int(num2[j]) * int(num1[i]) + carry
                 
-                res[i+j+1] = temp_prod % 10
+                res[i + j + 1] = temp_prod % 10
                 carry = temp_prod // 10
             if carry:
-                res[pos-1] = carry
+                res[pos - 1] = carry
         ans = ''
 
         if res[0] == 0:
