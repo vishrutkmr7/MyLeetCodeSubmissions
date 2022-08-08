@@ -7,4 +7,4 @@ class Solution:
             else:                           
                 arr[bisect_left(arr, n)] = n 
 
-        return len(arr)       
+        return len(arr)   
