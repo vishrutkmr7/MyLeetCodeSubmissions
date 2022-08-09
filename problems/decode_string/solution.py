@@ -27,5 +27,5 @@ class Solution:
                             return prefix + cur[start:i] * int(num) + helper(cur[i+1:])
                 i += 1
             return prefix
-                    
+
         return helper(s)

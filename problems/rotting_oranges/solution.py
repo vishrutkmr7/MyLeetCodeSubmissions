@@ -17,11 +17,16 @@ class Solution:
             for _ in range(len(q)):
                 x, y = q.pop(0)
                 for k in range(4):
-                    if x + dx[k] > -1 and x + dx[k] < m and y + dy[k] > - 1 and y + dy[k] < n:
-                        if grid[x + dx[k]][y + dy[k]] == 1:
-                            grid[x + dx[k]][y + dy[k]] = 2
-                            q.append([x + dx[k], y + dy[k]])
-                            fresh -= 1
+                    if (
+                        x + dx[k] > -1
+                        and x + dx[k] < m
+                        and y + dy[k] > -1
+                        and y + dy[k] < n
+                        and grid[x + dx[k]][y + dy[k]] == 1
+                    ):
+                        grid[x + dx[k]][y + dy[k]] = 2
+                        q.append([x + dx[k], y + dy[k]])
+                        fresh -= 1
             if q:
                 time += 1
         return time if fresh == 0 else -1

@@ -5,15 +5,11 @@ class Solution:
         ans = 0
         nums = sorted(nums)
         while sum(nums) > 0:
-            x = 0
-            for num in nums:
-                if num > 0:
-                    x = num
-                    break
-            nums = [num - x if num - x > 0 else 0 for num in nums]
-                
+            x = next((num for num in nums if num > 0), 0)
+            nums = [max(num - x, 0) for num in nums]
+
             ans += 1
-        
+
         return ans
             
         

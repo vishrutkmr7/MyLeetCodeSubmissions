@@ -3,15 +3,15 @@ class Solution:
         n = len(nums)
         if n == 1:
             return 0
-        
+
         monotonic_stack = []
         indexes = []
         begin = None
         end = None
         cur_max = None
-        
+
         for i in range(n):
-            while len(monotonic_stack) > 0 and nums[i] < monotonic_stack[-1]:
+            while monotonic_stack and nums[i] < monotonic_stack[-1]:
                 val = monotonic_stack.pop()
                 ind = indexes.pop()
                 if begin is None or ind < begin:
@@ -24,8 +24,5 @@ class Solution:
                 end = i
             monotonic_stack.append(nums[i])
             indexes.append(i)
-        
-        if begin is not None:
-            return end - begin + 1
-        else:
-            return 0
+
+        return end - begin + 1 if begin is not None else 0

@@ -7,16 +7,11 @@ class Trie:
         self.trie.append(word)
 
     def search(self, word: str) -> bool:
-        if word in self.trie:
-            return True
-        return False
+        return word in self.trie
 
     def startsWith(self, prefix: str) -> bool:
         len_prefix = len(prefix)
-        for word in self.trie:
-            if word[: len_prefix] == prefix:
-                return True
-        return False
+        return any(word[: len_prefix] == prefix for word in self.trie)
 
 
 # Your Trie object will be instantiated and called as such:

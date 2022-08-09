@@ -14,6 +14,6 @@ class Solution:
             dp[i][3] = (dp[i - 1][2]) % moduler
             # For vowel u
             dp[i][4] = (dp[i - 1][2] + dp[i - 1][3]) % moduler
-            
+
         return int(sum(dp[-1]) % moduler)
         

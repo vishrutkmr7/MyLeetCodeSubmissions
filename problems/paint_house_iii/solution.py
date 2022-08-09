@@ -1,6 +1,10 @@
 class Solution:
     def minCost(self, houses: List[int], cost: List[List[int]], m: int, n: int, target: int) -> int:
-        dp = [[[math.inf for k in range(target + 1)] for j in range(n + 1)] for i in range(m + 1)]
+        dp = [
+            [[math.inf for _ in range(target + 1)] for _ in range(n + 1)]
+            for _ in range(m + 1)
+        ]
+
         for j in range(n + 1):
             dp[0][j][0] = 0
         for i in range(1, m + 1):
@@ -13,7 +17,5 @@ class Solution:
                     dp[i][j][k] = min(ls)
                     if houses[i - 1] == 0: # Only add paint cost if it hasn't been painted before
                         dp[i][j][k] += cost[i - 1][j - 1]
-        ans = min([dp[m][j][target] for j in range(1, n + 1)])
-        if ans == math.inf:
-            return -1
-        return ans
+        ans = min(dp[m][j][target] for j in range(1, n + 1))
+        return -1 if ans == math.inf else ans

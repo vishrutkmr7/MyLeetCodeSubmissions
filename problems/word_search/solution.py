@@ -2,10 +2,8 @@ class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         if not board or not word:
             return False
-        if len(board) == 0 or len(board[0]) == 0:
+        if len(board[0]) == 0:
             return False
-        if len(word) == 0:
-            return True
         for i in range(len(board)):
             for j in range(len(board[0])):
                 if self.dfs(board, i, j, word):
