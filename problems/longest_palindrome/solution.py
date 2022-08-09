@@ -9,7 +9,5 @@ class Solution:
             else:
                 stack.append(ch)
 
-        if not stack:
-            return count
-        return count + 1
+        return count + 1 if stack else count
         

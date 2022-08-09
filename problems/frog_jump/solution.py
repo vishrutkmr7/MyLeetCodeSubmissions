@@ -11,9 +11,8 @@ class Solution:
                 return False
             jump=pos-last
             for x in [pos+jump-1,pos+jump,pos+jump+1]:
-                if x in a:
-                    if dfs(pos,x):
-                        return True
+                if x in a and dfs(pos, x):
+                    return True
             return False
-        
+
         return dfs(0,1)
