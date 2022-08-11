@@ -15,3 +15,4 @@ class Solution:
                 tree1.right, tree2.right
             )
         
+        
