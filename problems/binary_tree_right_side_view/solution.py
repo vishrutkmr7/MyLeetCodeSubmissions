@@ -26,5 +26,3 @@ class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         levels = self.levelOrder(root)
         return [level[-1] for level in levels]
-
-        
