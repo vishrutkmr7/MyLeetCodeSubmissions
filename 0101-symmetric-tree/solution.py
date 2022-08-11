@@ -14,3 +14,4 @@ class Solution:
         if not tree1 or not tree2:
             return False
         return tree1.val == tree2.val and self.is_symmetric_helper(tree1.left, tree2.right) and self.is_symmetric_helper(tree1.right, tree2.left)
+        
