@@ -4,7 +4,6 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
 INT_MAX = 4294967296
 INT_MIN = -4294967296
 
@@ -19,3 +18,4 @@ class Solution:
     
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         return (self.isBSTUtil(root, INT_MIN, INT_MAX))
+        
