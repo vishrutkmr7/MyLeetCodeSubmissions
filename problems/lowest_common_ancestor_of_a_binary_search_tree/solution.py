@@ -13,4 +13,6 @@ class Solution:
             return tree
         left = self.lowestCommonAncestor(tree.left, a, b)
         right = self.lowestCommonAncestor(tree.right, a, b)
-        return tree if left and right else left or right
+        if left and right:
+            return tree
+        return left or right
