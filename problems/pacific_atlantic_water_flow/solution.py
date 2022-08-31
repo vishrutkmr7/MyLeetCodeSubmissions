@@ -15,11 +15,9 @@ class Solution:
             self.dfs(row, COL-1, atl, heights[row][COL-1], heights)
 
         for row in range(ROW):
-            res.extend(
-                [row, col]
-                for col in range(COL)
-                if (row, col) in pac and (row, col) in atl
-            )
+            for col in range(COL):
+                if (row, col) in pac and (row, col) in atl:
+                    res.append([row, col])
 
         return res
 
