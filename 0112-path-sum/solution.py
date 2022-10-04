@@ -22,4 +22,3 @@ class Solution:
         self.root_to_leaf_helper(tree.left, path, result)
         self.root_to_leaf_helper(tree.right, path, result)
         path.pop()
-
