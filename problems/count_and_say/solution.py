@@ -1,6 +1,5 @@
 class Solution:
-    
-    def say(self, n:str) -> str:
+    def say(self, n: str) -> str:
         res = ""
         stack = []
         for digit in map(int, n):
@@ -15,8 +14,7 @@ class Solution:
             stack.append(digit)
 
         return res + str(len(stack)) + str(stack[-1])
-        
-        
+
     def countAndSay(self, n: int) -> str:
         # Base
         if n == 1:
@@ -26,6 +24,3 @@ class Solution:
             said = self.say(said)
 
         return said
-            
-        
-        
