@@ -1,20 +1,14 @@
 class Solution(object):
     def maxAreaOfIsland(self, grid):
-        seen = set()
-        ans = 0
-        for r0, row in enumerate(grid):
-            for c0, val in enumerate(row):
-                if val and (r0, c0) not in seen:
-                    shape = 0
-                    stack = [(r0, c0)]
-                    seen.add((r0, c0))
-                    while stack:
-                        r, c = stack.pop()
-                        shape += 1
-                        for nr, nc in ((r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)):
-                            if (0 <= nr < len(grid) and 0 <= nc < len(grid[0])
-                                    and grid[nr][nc] and (nr, nc) not in seen):
-                                stack.append((nr, nc))
-                                seen.add((nr, nc))
-                    ans = max(ans, shape)
-        return ans
+        def dfs(i: int, j: int) -> int:
+            if 0 <= i < len(grid) and 0 <= j < len(grid[0]) and grid[i][j] == 1:
+                grid[i][j] = 0
+                return 1 + dfs(i + 1, j) + dfs(i - 1, j) + dfs(i, j + 1) + dfs(i, j - 1)
+            return 0
+
+        max_area = 0
+        for index, _ in enumerate(grid):
+            for j in range(len(grid[0])):
+                if grid[index][j] == 1:
+                    max_area = max(max_area, dfs(index, j))
+        return max_area
