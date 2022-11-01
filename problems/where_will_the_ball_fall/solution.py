@@ -5,7 +5,7 @@ class Solution:
             grid[i].insert(0, 1)
             grid[i].append(-1)
         res = []
-
+        
         for k in range(1, col + 1):
             i , j = 0 , k
             stuck = False
@@ -16,16 +16,17 @@ class Solution:
                     else:
                         stuck = True
                         break
-                elif grid[i][j - 1] == -1:
-                    j -= 1
                 else:
-                    stuck = True
-                    break
+                    if grid[i][j - 1] == -1:
+                        j -= 1
+                    else:
+                        stuck = True
+                        break
                 i += 1
             if stuck:
                 res.append(-1)
             else:
                 res.append(j - 1)
-
+                
         return res
         
