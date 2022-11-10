@@ -13,9 +13,9 @@ class Solution:
         # if root.children is None:
         #     return 1
         # return 1 + max(self.maxDepth(child) for child in root.children)
-        if(root==None):
+        if root is None:
             return 0
-        
+
         q=collections.deque()
         q.append(root)
         level=0

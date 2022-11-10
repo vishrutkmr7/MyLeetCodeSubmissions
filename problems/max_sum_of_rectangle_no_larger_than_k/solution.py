@@ -2,7 +2,7 @@ class Solution:
     def maxSumSubmatrix(self, matrix: List[List[int]], k: int) -> int:
         m, n = len(matrix), len(matrix[0])
         res = -inf
-        
+
         for l in range(n):
             rowSums = [0] * m
             for r in range(l, n):
