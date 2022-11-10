@@ -14,6 +14,6 @@ class Solution:
             node, lvl = queue.pop(0)
             hashMap[lvl] = hashMap.get(lvl,[]) + [node.val]
             queue.extend((child, lvl+1) for child in node.children)
-                
+
         return list(hashMap.values())
         

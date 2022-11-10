@@ -4,10 +4,10 @@ class Solution:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
         word_len = len(words[0])
         ori_word_dict = defaultdict(int)
-		
+
         for word in words:
             ori_word_dict[word] += 1
-        
+
         all_word_len = len(words) * word_len
         result = []
         for i in range(word_len):

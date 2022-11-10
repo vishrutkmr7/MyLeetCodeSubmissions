@@ -5,9 +5,5 @@ class Solution:
             for i in range(rng[0], rng[1] + 1):
                 if i not in covered:
                     covered.append(i)
-        
-        for j in range(left, right + 1):
-            if j not in covered:
-                return False
-        
-        return True
+
+        return all(j in covered for j in range(left, right + 1))

@@ -18,12 +18,11 @@ class MyCircularQueue:
             return False
 
     def deQueue(self) -> bool:
-        if self.size > 0:
-            self.front = (self.front + 1) % self.maxsize # for making it circular
-            self.size -= 1
-            return True
-        else:
+        if self.size <= 0:
             return False
+        self.front = (self.front + 1) % self.maxsize # for making it circular
+        self.size -= 1
+        return True
 
     def Front(self) -> int:
         return self.queue[self.front] if self.size > 0 else -1
@@ -32,10 +31,10 @@ class MyCircularQueue:
         return self.queue[self.rear] if self.size > 0 else -1
 
     def isEmpty(self) -> bool:
-        return True if self.size == 0 else False
+        return self.size == 0
 
     def isFull(self) -> bool:
-        return True if self.size == self.maxsize else False
+        return self.size == self.maxsize
         
 
 

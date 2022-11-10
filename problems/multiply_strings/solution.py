@@ -19,5 +19,4 @@ class Solution:
 
         if res[0] == 0:
             del res[0]
-        ans = ''.join(str(num) for num in res)
-        return ans
+        return ''.join(str(num) for num in res)

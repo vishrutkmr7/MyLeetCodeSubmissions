@@ -15,10 +15,10 @@ class Solution:
                 elif color[i]==color[v]:
                     return False
             return True
+
         n=len(arr)
         color=[-1]*n
         for i in range(n):
-            if color[i]==-1:
-                if dfs(i,0,color,arr)==False:
-                    return 0
+            if color[i] == -1 and dfs(i, 0, color, arr) == False:
+                return 0
         return 1

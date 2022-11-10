@@ -7,9 +7,8 @@ class Solution:
                 if neededTime[i] <= neededTime[j]:
                     ans += neededTime[i]
                     i = j
-                    j += 1
-                elif neededTime[j] < neededTime[i]:
+                else:
                     ans += neededTime[j]
-                    j += 1
+                j += 1
             i = j
         return ans

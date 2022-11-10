@@ -12,15 +12,14 @@ class Solution:
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         heap = []
         hq.heapify(heap)
-        
+
         def dfs(root, depth, position):
             if not root:
                 return
-            else:
-                hq.heappush(heap, (position, depth, root.val))
-                dfs(root.left, depth + 1, position - 1)
-                dfs(root.right, depth + 1, position + 1)
-                
+            hq.heappush(heap, (position, depth, root.val))
+            dfs(root.left, depth + 1, position - 1)
+            dfs(root.right, depth + 1, position + 1)
+
         dfs(root, 0, 0)
         result = []
         posHold = -float("inf")
