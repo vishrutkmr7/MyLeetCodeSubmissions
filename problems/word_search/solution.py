@@ -1,33 +1,33 @@
 class Solution:
-    def exist(self, board: List[List[str]], word: str) -> bool:
-        if not board or not word:
-            return False
-        if len(board[0]) == 0:
-            return False
-        for i in range(len(board)):
-            for j in range(len(board[0])):
-                if self.dfs(board, i, j, word):
-                    return True
-        return False
+    def exist(self, board: list[list[str]], word: str) -> bool:
+        m, n = len(board), len(board[0])
 
-    def dfs(self, board, i, j, word):
-        if len(word) == 0:
-            return True
-        if (
-            i < 0
-            or i >= len(board)
-            or j < 0
-            or j >= len(board[0])
-            or board[i][j] != word[0]
-        ):
+        if len(word) > m * n:
             return False
-        temp = board[i][j]
-        board[i][j] = "#"
-        res = (
-            self.dfs(board, i + 1, j, word[1:])
-            or self.dfs(board, i - 1, j, word[1:])
-            or self.dfs(board, i, j + 1, word[1:])
-            or self.dfs(board, i, j - 1, word[1:])
-        )
-        board[i][j] = temp
-        return res
+
+        if not (cnt := Counter(word)) <= Counter(chain(*board)):
+            return False
+
+        if cnt[word[0]] > cnt[word[-1]]:
+            word = word[::-1]
+
+        def dfs(i, j, s):
+
+            if s == len(word):
+                return True
+
+            if 0 <= i < m and 0 <= j < n and board[i][j] == word[s]:
+                board[i][j] = "#"
+                adj = [
+                    (i, j + 1),
+                    (i, j - 1),
+                    (i + 1, j),
+                    (i - 1, j),
+                ]
+                dp = any(dfs(ii, jj, s + 1) for ii, jj in adj)
+                board[i][j] = word[s]
+                return dp
+
+            return False
+
+        return any(dfs(i, j, 0) for i, j in product(range(m), range(n)))
