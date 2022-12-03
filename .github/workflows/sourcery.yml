@@ -22,3 +22,4 @@ jobs:
         with:
           token: ${{ secrets.SOURCERY_TOKEN }}
           verbose: false
+          check: false
