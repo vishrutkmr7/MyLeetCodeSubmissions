@@ -1,4 +1,4 @@
 class Solution:
-    def uniqueOccurrences(self, arr: List[int]) -> bool:
-        # Using Walrus operator
-        return len(c := Counter(arr)) == len(set(c.values()))
+    def uniqueOccurrences(self, nums: List[int]) -> bool:
+        count = Counter(nums)
+        return len(count.values()) == len(set(count.values()))
