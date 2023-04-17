@@ -1,7 +1,10 @@
 class Solution:
-    def findKthPositive(self, arr: List[int], k: int) -> int:
-        class Count(object):
-            def __getitem__(self, i):
-                return arr[i] - i - 1
+    def findKthPositive(self, nums: List[int], k: int) -> int:
+        missing = 0
+        for i in range(1, nums[-1]):
+            if i not in nums:
+                missing += 1
+                if missing == k:
+                    return i
 
-        return k + bisect.bisect_left(Count(), k, 0, len(arr))
+        return nums[-1] + k - missing
