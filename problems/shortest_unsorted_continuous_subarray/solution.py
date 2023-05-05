@@ -1,28 +1,25 @@
 class Solution:
-    def findUnsortedSubarray(self, nums: List[int]) -> int:
-        n = len(nums)
-        if n == 1:
+    def findUnsortedSubarray(self, nums: list[int]) -> int:
+        if len(nums) < 2:
             return 0
 
-        monotonic_stack = []
-        indexes = []
-        begin = None
-        end = None
-        cur_max = None
-
-        for i in range(n):
-            while monotonic_stack and nums[i] < monotonic_stack[-1]:
-                val = monotonic_stack.pop()
-                ind = indexes.pop()
-                if begin is None or ind < begin:
-                    begin = ind
-                if cur_max is None or val > cur_max:
-                    cur_max = val
-                if end is None or i > end:
-                    end = i
-            if cur_max is not None and nums[i] < cur_max:
+        prev = nums[0]
+        end = 0
+        # find the largest index not in place
+        for i, v in enumerate(nums):
+            if v < prev:
                 end = i
-            monotonic_stack.append(nums[i])
-            indexes.append(i)
+            else:
+                prev = v
 
-        return end - begin + 1 if begin is not None else 0
+        start = len(nums) - 1
+        prev = nums[start]
+
+        # find the smallest index not in place
+        for i in range(len(nums) - 1, -1, -1):
+            if prev < nums[i]:
+                start = i
+            else:
+                prev = nums[i]
+
+        return end - start + 1 if end != 0 else 0
