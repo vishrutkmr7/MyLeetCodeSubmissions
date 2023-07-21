@@ -34,10 +34,9 @@ class Solution:
                             if (r, c, new_keys) not in visited:
                                 visited.add((r, c, new_keys))
                                 next_level.append((r, c, new_keys))
-                        else: # grid[r][c].isupper() == True
-                            if keys[ord(grid[r][c].lower()) - ord('a')] == 1 and (r, c, keys) not in visited:
-                                visited.add((r, c, keys))
-                                next_level.append((r, c, keys))
+                        elif keys[ord(grid[r][c].lower()) - ord('a')] == 1 and (r, c, keys) not in visited:
+                            visited.add((r, c, keys))
+                            next_level.append((r, c, keys))
             curr_level = next_level
             moves += 1
         return -1

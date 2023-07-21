@@ -5,10 +5,8 @@ class Solution:
 
         for row in grid:
             matrix[str(row)] += 1
-        
+
         for i in range(len(grid[0])):
-            col = []
-            for j in range(len(grid)):
-                col.append(grid[j][i])
+            col = [item[i] for item in grid]
             count += matrix[str(col)]
         return count

@@ -2,7 +2,7 @@ class Solution:
     def longestObstacleCourseAtEachPosition(self, nums: list[int]) -> list[int]:
         lis = []
         for i, v in enumerate(nums):
-            if len(lis) == 0 or lis[-1] <= v:
+            if not lis or lis[-1] <= v:
                 lis.append(v)
                 nums[i] = len(lis)
             else:

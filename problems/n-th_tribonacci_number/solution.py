@@ -5,7 +5,7 @@ class Solution:
         t0 = 0
         t1 = 1
         t2 = 1
-        for i in range(n - 2):
+        for _ in range(n - 2):
             tn = t0 + t1 + t2
             t0 = t1
             t1 = t2

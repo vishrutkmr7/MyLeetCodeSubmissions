@@ -17,7 +17,4 @@ class Solution:
             return False
 
         # check swaps
-        if s[diff[0]] == goal[diff[1]] and s[diff[1]] == goal[diff[0]]:
-            return True
-
-        return False
+        return s[diff[0]] == goal[diff[1]] and s[diff[1]] == goal[diff[0]]

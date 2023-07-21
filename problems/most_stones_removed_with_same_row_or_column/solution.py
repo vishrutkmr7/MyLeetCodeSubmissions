@@ -1,16 +1,13 @@
 class Solution:
     def removeStones(self, stones: List[List[int]]) -> int:
-        root = set()
         parent = {}
         rank = {}
         for x, y in stones:
             self.set_param(x, parent, rank)
             self.set_param(~y, parent, rank)
             self.union(x, ~y, parent, rank)
-            
-        for p in parent:
-            root.add(self.find(parent[p], parent))
-            
+
+        root = {self.find(value, parent) for value in parent.values()}
         return len(stones) - len(root)
         
     def set_param(self, x, parent, rank):
