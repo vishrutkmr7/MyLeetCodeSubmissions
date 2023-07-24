@@ -11,13 +11,8 @@ class Solution:
         while curr:
             count[curr.val] = count.get(curr.val, 0) + 1
             curr = curr.next
-        
-        # Step 2: Find the values that appear more than once
-        duplicates = set()
-        for val, freq in count.items():
-            if freq > 1:
-                duplicates.add(val)
-        
+
+        duplicates = {val for val, freq in count.items() if freq > 1}
         # Step 3: Delete nodes with duplicate values
         dummy = ListNode(-1)
         dummy.next = head
@@ -28,5 +23,5 @@ class Solution:
             else:
                 prev = curr
             curr = curr.next
-        
+
         return dummy.next

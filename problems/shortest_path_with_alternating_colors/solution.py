@@ -9,10 +9,7 @@ class Solution:
     def shortestAlternatingPaths(
         self, n: int, redEdges: list[list[int]], blueEdges: list[list[int]]
     ) -> list[int]:
-        hashMap = {}
-        for i in range(n):
-            hashMap[i] = Node(i)
-
+        hashMap = {i: Node(i) for i in range(n)}
         for redEdge in redEdges:
             hashMap[redEdge[0]].redCities.append(redEdge[1])
 

@@ -25,15 +25,14 @@ class WordDictionary:
         if not word:
             if node.isWord:
                 self.res = True
-            return 
+            return
         if word[0] == ".":
             for n in node.children.values():
                 self.dfs(n, word[1:])
-        else:
-            node = node.children.get(word[0])
-            if not node:
-                return 
+        elif node := node.children.get(word[0]):
             self.dfs(node, word[1:])
+        else:
+            return
 
 
 # Your WordDictionary object will be instantiated and called as such:
