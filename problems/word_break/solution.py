@@ -1,14 +1,14 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        m, n = len(s), len(wordDict)
-        dp = [False] * (m + 1)
+        wordSet = set(wordDict)  # Converting the word dictionary to a set for faster lookups
+        n = len(s)
+        dp = [False] * (n + 1)
         dp[0] = True
-        for i in range(1, m + 1):
-            for j in range(n):
-                if (
-                    dp[i - len(wordDict[j])]
-                    and s[i - len(wordDict[j]) : i] == wordDict[j]
-                ):
+
+        for i in range(1, n + 1):
+            for j in range(i):
+                if dp[j] and s[j:i] in wordSet:
                     dp[i] = True
                     break
-        return dp[m]
+
+        return dp[n]
