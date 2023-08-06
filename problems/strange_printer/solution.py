@@ -1,6 +1,6 @@
 class Solution(object):
     def strangePrinter(self, s):
-        cache = dict()
+        cache = {}
 
         def solve(s):
             if not s:
@@ -8,12 +8,12 @@ class Solution(object):
             if s in cache:
                 return cache[s]
 
-            cost = solve(s[0:-1]) + 1
+            cost = solve(s[:-1]) + 1
 
             char_to_insert = s[-1]
             for i, c in enumerate(s[:-1]):
                 if c == char_to_insert:
-                    cost = min(cost, solve(s[0:i + 1]) + solve(s[i + 1:-1]))
+                    cost = min(cost, solve(s[:i + 1]) + solve(s[i + 1:-1]))
             cache[s] = cost
             return cost
 
