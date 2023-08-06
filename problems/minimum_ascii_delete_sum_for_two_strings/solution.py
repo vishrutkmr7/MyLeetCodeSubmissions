@@ -8,5 +8,4 @@ class Solution:
                     dp[i + 1][j + 1] = dp[i][j] + ord(s1[i])
                 else:
                     dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j])
-        result = sum(map(ord, s1 + s2)) - dp[l1][l2] * 2
-        return result
+        return sum(map(ord, s1 + s2)) - dp[l1][l2] * 2
