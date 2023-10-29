@@ -4,5 +4,5 @@ class Solution:
         time = minutesToTest / minutesToDie + 1
         while time ** res < buckets:
             res += 1
-
+        
         return res
