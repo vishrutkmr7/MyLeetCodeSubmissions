@@ -4,7 +4,7 @@ class Solution:
         for i in range(len(routes)):
             for stop in routes[i]:
                 buses[stop].append(i)
-
+                
         q = [source]
         seenbus = set()
         depth = 0
@@ -20,6 +20,6 @@ class Solution:
                     temp += routes[bus]
             q = temp
             depth += 1
-
+        
         return -1
         
