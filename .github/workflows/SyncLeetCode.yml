@@ -3,22 +3,19 @@ name: Sync Leetcode
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron: "0 0 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-     - name: Checkout Repository
-       uses: actions/checkout@v2
-      
-     - name: Sync
-       uses: joshcai/leetcode-sync@v1.6
-       with:
-        github-token: ${{ github.token }}
-        leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
-        leetcode-session: ${{ secrets.LEETCODE_SESSION }}
-        verbose: true
-        commit-header: '[LeetCode Sync]'
-#         destination-folder: my-folder
+      - name: Sync
+        uses: joshcai/leetcode-sync@v1.6
+        with:
+          github-token: ${{ github.token }}
+          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
+          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
+          # destination-folder: my-folder
+          verbose: true
+          commit-header: '[LeetCode Sync]'
